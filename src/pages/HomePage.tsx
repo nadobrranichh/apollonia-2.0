@@ -4,7 +4,7 @@ import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { textStyle } from "../styling";
-import IMG_2779 from "../assets/IMG_2779.JPG";
+import IMG_2779 from "../assets/IMG_2779.jpg";
 import IMG_2780s from "../assets/IMG_2780-s.jpg";
 import IMG_2779s from "../assets/IMG_2779-s.jpg";
 import IMG_2777s from "../assets/IMG_2777-s.jpg";
