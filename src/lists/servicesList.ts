@@ -35,7 +35,7 @@ export const servicesList: ServiceProps[] = [
     imageStyles: serviceImageStyle(
       "absolute",
       { xs: "3.8rem", md: "4.5rem" },
-      { xs: "65%", sm: "70%", md: "73%" }
+      { xs: "63%", sm: "70%", md: "73%" }
     ),
   },
   {
@@ -48,7 +48,7 @@ export const servicesList: ServiceProps[] = [
     imageStyles: serviceImageStyle(
       "absolute",
       { xs: "3.8rem", md: "4.5rem" },
-      { xs: "65%", sm: "70%", md: "73%" }
+      { xs: "63%", sm: "70%", md: "73%" }
     ),
   },
   {
@@ -75,8 +75,8 @@ export const servicesList: ServiceProps[] = [
     imageStyles: {
       ...serviceImageStyle(
         "absolute",
-        { xs: "3.8rem", md: "4.5rem" },
-        { xs: "63%", md: "70%" }
+        { xs: "3.4rem", md: "4.5rem" },
+        { xs: "60%", md: "70%" }
       ),
       rotate: "10deg",
     },
@@ -90,8 +90,8 @@ export const servicesList: ServiceProps[] = [
     image: MaintenanceKitImg,
     imageStyles: serviceImageStyle(
       "absolute",
-      { xs: "3rem", md: "4rem" },
-      { xs: "66%", md: "70%" }
+      { xs: "2.8rem", md: "4rem" },
+      { xs: "63%", md: "70%" }
     ),
   },
   {
@@ -104,8 +104,8 @@ export const servicesList: ServiceProps[] = [
     image: WhiteningTrayImg,
     imageStyles: serviceImageStyle(
       "absolute",
-      { xs: "3rem", md: "3.5rem" },
-      "97%"
+      { xs: "2.8rem", md: "3.5rem" },
+      "95.5%"
     ),
   },
   {
@@ -118,7 +118,7 @@ export const servicesList: ServiceProps[] = [
     imageStyles: serviceImageStyle(
       "absolute",
       { xs: "3.5rem", md: "5.5rem" },
-      "67%"
+      "63%"
     ),
   },
 ];
