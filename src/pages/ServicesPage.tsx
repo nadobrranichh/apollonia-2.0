@@ -7,6 +7,7 @@ import { servicesList } from "../lists/servicesList";
 import Service from "../components/Service";
 import GemService from "../components/GemService";
 import { textStyle } from "../styling";
+import React from "react";
 
 const ServicesPage = () => {
   return (
@@ -40,11 +41,13 @@ const ServicesPage = () => {
             gap: "1rem",
           }}
         >
-          {servicesList.map((s) => {
-            if (s.type === "gem") {
-              return <GemService key={s.id} />;
-            }
-            return <Service key={s.id} service={s} />;
+          {servicesList.map((s, i) => {
+            return (
+              <React.Fragment key={s.id}>
+                <Service service={s} />
+                {i === 4 && <GemService />}
+              </React.Fragment>
+            );
           })}
         </Box>
       </Box>

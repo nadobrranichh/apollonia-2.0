@@ -27,8 +27,44 @@ const splitByLines = function (text: string) {
   ));
 };
 
+const renderPriceContainer = function (
+  servicePrice: number,
+  servicePriceComment: string | null
+) {
+  return (
+    // price-container
+    <Box sx={{ display: "flex" }}>
+      <Typography
+        component="p"
+        sx={{
+          ...textStyle(500, { xs: "1.25rem", md: "25px" }),
+          marginRight: servicePriceComment
+            ? "2px"
+            : { xs: "0.7rem", md: "20px" },
+        }}
+      >
+        ${servicePrice}
+      </Typography>
+      {servicePriceComment && (
+        <Typography
+          component="p"
+          sx={{
+            ...textStyle(600, "0.5rem"),
+            lineHeight: "0.7rem",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          {splitByLines(servicePriceComment)}
+        </Typography>
+      )}
+    </Box>
+  );
+};
+
 const Service: React.FC<{ service: ServiceProps }> = ({ service }) => {
-  const { title, text, price, priceComment, image, imageStyles } = service;
+  const { title, text, price, priceComment, image, imageStyles, textWidth } =
+    service;
   return (
     //service
     <Box sx={{ ...serviceStyles, position: image ? "relative" : "static" }}>
@@ -50,42 +86,30 @@ const Service: React.FC<{ service: ServiceProps }> = ({ service }) => {
         {/* service-text */}
         <Typography
           component="p"
-          sx={textStyle(200, { xs: "0.7rem", md: "15px" }, null, "italic")}
+          sx={{
+            ...textStyle(200, { xs: "0.7rem", md: "15px" }, null, "italic"),
+            width: textWidth || "85%",
+          }}
         >
-          {text?.includes("/") ? splitByLines(text) : text}
+          {text}
         </Typography>
       </Box>
 
-      {/* price-container */}
-      <Box sx={{ display: "flex" }}>
-        <Typography
-          component="p"
-          sx={{
-            ...textStyle(500, { xs: "1.25rem", md: "25px" }),
-            marginRight: priceComment ? "2px" : { xs: "0.7rem", md: "20px" },
-          }}
-        >
-          ${price}
-        </Typography>
-        {priceComment && (
-          <Typography
-            component="p"
-            sx={{
-              ...textStyle(600, "0.5rem"),
-              lineHeight: "0.7rem",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            {splitByLines(priceComment)}
-          </Typography>
-        )}
-      </Box>
-      {/*       <Box
-        component="img"
-        src={ApolloniaLogo}
-        sx={{ height: "70%", marginRight: "1vw" }}
-      ></Box> */}
+      {!Array.isArray(price) && !Array.isArray(priceComment)
+        ? renderPriceContainer(price, priceComment)
+        : Array.isArray(price) &&
+          Array.isArray(priceComment) && (
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "start",
+              }}
+            >
+              {price.map((p, i) => renderPriceContainer(p, priceComment[i]))}
+            </Box>
+          )}
+
       {image && <Box component="img" src={image} sx={imageStyles}></Box>}
     </Box>
   );

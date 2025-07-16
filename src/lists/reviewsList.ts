@@ -19,7 +19,7 @@ export const reviewsList: ReviewProps[] = [
     name: "Bryanna Trece",
     avatarUrl: avatar4,
     reviewText:
-      "I highly recommend Nataliia as a dentist. <b>She goes above and beyond to ensure her customers feel cared for</b>, and comfortable during their visit. She takes the time to explain the procedure, and gives you follow up tips. I got my teeth whitened by her here, and <b>I was incredibly impressed with the results after just one visit</b>. My teeth were significantly whiter after just one visit, what surprised me the most was that <b>I experienced no pain, or discomfort during the process or afterwards</b>. Her whitening technique is the best there is out there",
+      "I highly recommend Nataliia as a dentist. <b>She goes above and beyond to ensure her customers feel cared for</b>, and comfortable during their visit. She takes the time to explain the procedure, and gives you follow up tips. I got my teeth whitened by her here, and <b>I was incredibly impressed with the results after just one visit</b>. My teeth were significantly whiter after just one visit, what surprised me the most was that <b>I experienced no pain, or discomfort during the process or afterwards.</b> Her whitening technique is the best there is out there",
     rating: 5,
   },
   {
@@ -59,7 +59,7 @@ export const reviewsList: ReviewProps[] = [
     name: "Hoang Vo",
     avatarUrl: avatar6,
     reviewText:
-      "I had teeth whitening with Natalia, <b>it was painless and my teeth were 6-8 shades whiter</b>.",
+      "I had teeth whitening with Natalia, <b>it was painless and my teeth were 6-8 shades whiter.</b>",
     rating: 5,
   },
 ];

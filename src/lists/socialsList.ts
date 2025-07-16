@@ -26,7 +26,7 @@ export const socialsList: SocialLink[] = [
   {
     platform: "Facebook",
     icon: faFacebookF,
-    url: "https://www.facebook.com/share/15qMP2EGQk/?mibextid=wwXIfr",
+    url: "https://www.facebook.com/share/1EXSB8KCuX/?mibextid=wwXIfr",
   },
   {
     platform: "TikTok",

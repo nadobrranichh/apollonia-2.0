@@ -42,7 +42,6 @@ const headerStyles = {
 
 const Header = () => {
   const location = useLocation();
-  console.log(location);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));

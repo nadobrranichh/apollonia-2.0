@@ -41,7 +41,7 @@ const Footer = () => {
           marginBottom: "0.65rem",
         }}
       >
-        Follow me
+        Follow
       </Typography>
       <Box
         sx={{
@@ -87,7 +87,13 @@ const Footer = () => {
               component="p"
               sx={textStyle(600, "1.2rem", "uppercase")}
             >
-              Contact me
+              To book:
+            </Typography>
+          </ListItem>
+          <ListItem sx={{ padding: 0 }}>
+            {/* subtitle */}
+            <Typography component="p" sx={textStyle(null, "0.9rem")}>
+              DM on insta or FB
             </Typography>
           </ListItem>
           <ListItem sx={{ padding: 0 }}>
@@ -129,14 +135,14 @@ const Footer = () => {
             {/* li */}
             <Typography component="p" sx={liStyles}>
               <Link href="/" sx={liLinkStyles}>
-                About me
+                About
               </Link>
             </Typography>
           </ListItem>
           <ListItem sx={{ padding: 0 }}>
             {/* li */}
             <Typography component="p" sx={liStyles}>
-              <Link href="/" sx={liLinkStyles}>
+              <Link href="/location" sx={liLinkStyles}>
                 Location
               </Link>
             </Typography>
@@ -144,7 +150,7 @@ const Footer = () => {
           <ListItem sx={{ padding: 0 }}>
             {/* li */}
             <Typography component="p" sx={liStyles}>
-              <Link href="/" sx={liLinkStyles}>
+              <Link href="/services" sx={liLinkStyles}>
                 Services
               </Link>
             </Typography>
@@ -152,8 +158,16 @@ const Footer = () => {
           <ListItem sx={{ padding: 0 }}>
             {/* li */}
             <Typography component="p" sx={liStyles}>
-              <Link href="/" sx={liLinkStyles}>
+              <Link href="/reviews" sx={liLinkStyles}>
                 Reviews
+              </Link>
+            </Typography>
+          </ListItem>
+          <ListItem sx={{ padding: 0 }}>
+            {/* li */}
+            <Typography component="p" sx={liStyles}>
+              <Link href="/" sx={liLinkStyles}>
+                Shop
               </Link>
             </Typography>
           </ListItem>

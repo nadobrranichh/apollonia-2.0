@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import Review from "../components/Review";
 import { reviewsList, type ReviewProps } from "../lists/reviewsList";
 import { textStyle } from "../styling";
+import ReviewSwipeButton from "../components/ReviewSwipeButton";
+import { useEffect, useRef, useState } from "react";
 
 const ReviewsPage = () => {
   const theme = useTheme();
@@ -28,15 +30,44 @@ const ReviewsPage = () => {
     return resultArray;
   };
 
+  const [currentColumn, setCurrentColumn] = useState<number>(0);
+  useEffect(() => {
+    if (currentColumn < 0) setCurrentColumn(2);
+    if (currentColumn > 2) setCurrentColumn(0);
+  }, [currentColumn]);
+
+  //setting the reviewcolumns' container height
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerHeight, setContainerHeight] = useState<number>(0);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const children = Array.from(containerRef.current.children);
+
+      // getting heights of the children elements
+      const heights = children.map((c) =>
+        Number.parseFloat(getComputedStyle(c).height)
+      );
+      const maxHeight = Math.max(...heights);
+      setContainerHeight(maxHeight);
+    }
+  }, []);
+
   const renderReviewColumn = function (arr: ReviewProps[], i: number) {
     return (
       <Box
         key={i}
         sx={{
+          position: { xs: "absolute", sm: "relative" },
           display: "flex",
           flexDirection: "column",
-          gap: "1.5rem",
+          gap: "1rem",
           alignItems: "center",
+          transform: {
+            xs: `translateX(${100 * (i - currentColumn)}%)`,
+            sm: "none",
+          },
+          transition: "transform 0.5s",
         }}
       >
         {arr.map((r) => (
@@ -68,31 +99,54 @@ const ReviewsPage = () => {
         >
           Reviews
         </Typography>
-        <Box
-          sx={{
-            width: { xs: "100%", sm: "640px", lg: "1000px" },
-            display: { xs: "flex", sm: "grid" },
-            flexDirection: { xs: "column", sm: null },
-            alignItems: { xs: "center", sm: "start" },
-            gridTemplateColumns: {
-              xs: null,
-              sm: "repeat(2, 1fr)",
-              lg: "repeat(3, 1fr)",
-            },
+        {isMobile ? (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: "85%",
+              marginBottom: "3rem",
+            }}
+          >
+            <ReviewSwipeButton
+              direction="left"
+              onClickCallback={() => setCurrentColumn(currentColumn - 1)}
+            />
+            <Box
+              ref={containerRef}
+              sx={{
+                position: "relative",
+                overflow: "hidden",
+                width: "304px",
+                height: `${containerHeight}px`,
+              }}
+            >
+              {splitArray(reviewsList, 3).map(renderReviewColumn)}
+            </Box>
+            <ReviewSwipeButton
+              direction="right"
+              onClickCallback={() => setCurrentColumn(currentColumn + 1)}
+            />
+          </Box>
+        ) : (
+          <Box
+            sx={{
+              overflow: "auto",
+              width: { sm: "640px", lg: "1000px" },
+              display: "grid",
+              gridTemplateColumns: {
+                sm: "repeat(2, 1fr)",
+                lg: "repeat(3, 1fr)",
+              },
+              marginBottom: "3rem",
+            }}
+          >
+            {isTablet && splitArray(reviewsList, 2).map(renderReviewColumn)}
 
-            marginBottom: "3rem",
-            gap: { xs: "1.5rem", sm: 0 },
-          }}
-        >
-          {isMobile &&
-            reviewsList
-              .slice(0, 3)
-              .map((r) => <Review key={r.id} review={r} />)}
-
-          {isTablet && splitArray(reviewsList, 2).map(renderReviewColumn)}
-
-          {isPC && splitArray(reviewsList, 3).map(renderReviewColumn)}
-        </Box>
+            {isPC && splitArray(reviewsList, 3).map(renderReviewColumn)}
+          </Box>
+        )}
       </Box>
       <Footer />
     </Box>

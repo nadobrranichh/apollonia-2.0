@@ -7,6 +7,17 @@ import StarIcon from "../assets/star-svgrepo-com.svg";
 
 const Review: React.FC<{ review: ReviewProps }> = ({ review }) => {
   const { name, avatarUrl, reviewText, rating } = review;
+  const parser = new DOMParser();
+  const parse = (text: string) =>
+    parser.parseFromString(text, "text/html").body.firstChild;
+  /**
+   * const parser = new DOMParser();
+    reviewsList.forEach((r) =>
+      console.log(
+        parser.parseFromString(r.reviewText, "text/html").body.firstChild
+      )
+    );
+   */
   return (
     <Box
       sx={{
@@ -31,9 +42,8 @@ const Review: React.FC<{ review: ReviewProps }> = ({ review }) => {
           marginBottom: "0.9rem",
           marginTop: "0.5rem",
         }}
-      >
-        {reviewText}
-      </Typography>
+        dangerouslySetInnerHTML={{ __html: reviewText }}
+      />
       <Box sx={{ display: "flex", justifyContent: "start" }}>
         <Box
           component="img"
