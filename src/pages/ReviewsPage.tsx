@@ -38,6 +38,7 @@ const ReviewsPage = () => {
 
   //setting the reviewcolumns' container height
   const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState<number>(0);
   const [containerHeight, setContainerHeight] = useState<number>(0);
 
   useEffect(() => {
@@ -45,11 +46,12 @@ const ReviewsPage = () => {
       const children = Array.from(containerRef.current.children);
 
       // getting heights of the children elements
-      const heights = children.map((c) =>
-        Number.parseFloat(getComputedStyle(c).height)
+      const childrenStyles = children.map((c) => getComputedStyle(c));
+      const maxHeight = Math.max(
+        ...childrenStyles.map((cs) => Number.parseFloat(cs.height))
       );
-      const maxHeight = Math.max(...heights);
       setContainerHeight(maxHeight);
+      setContainerWidth(Number.parseFloat(childrenStyles[0].width));
     }
   }, []);
 
@@ -105,7 +107,7 @@ const ReviewsPage = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              width: "85%",
+              width: "90%",
               marginBottom: "3rem",
             }}
           >
@@ -118,7 +120,7 @@ const ReviewsPage = () => {
               sx={{
                 position: "relative",
                 overflow: "hidden",
-                width: "304px",
+                width: `${containerWidth}px`,
                 height: `${containerHeight}px`,
               }}
             >

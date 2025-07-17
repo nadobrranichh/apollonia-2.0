@@ -11,10 +11,8 @@ const Review: React.FC<{ review: ReviewProps }> = ({ review }) => {
   return (
     <Box
       sx={{
-        // display: "inline-block", ??????????????????
-        width: "17rem",
         maxWidth: "380px",
-        minWidth: "240px",
+        minWidth: "230px",
         borderRadius: "15px",
         bgcolor: "#25102e",
         textAlign: "center",
@@ -28,9 +26,10 @@ const Review: React.FC<{ review: ReviewProps }> = ({ review }) => {
       />
       <Typography
         sx={{
-          ...textStyle(400, "0.8rem"),
+          ...textStyle(400, "0.7rem"),
           marginBottom: "0.9rem",
           marginTop: "0.5rem",
+          maxWidth: "250px",
         }}
         dangerouslySetInnerHTML={{ __html: reviewText }}
       />
@@ -53,9 +52,9 @@ const Review: React.FC<{ review: ReviewProps }> = ({ review }) => {
             paddingLeft: "0.3rem",
           }}
         >
-          <Typography sx={textStyle(null, "0.9rem")}>{name}</Typography>
-          <Typography sx={textStyle(null, "0.9rem")}>
-            {rating}{" "}
+          <Typography sx={textStyle(null, "0.8rem")}>{name}</Typography>
+          <Typography sx={textStyle(null, "0.8rem")}>
+            {rating}
             <img
               src={StarIcon}
               alt="icon"
