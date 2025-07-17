@@ -42,17 +42,19 @@ const ReviewsPage = () => {
   const [containerHeight, setContainerHeight] = useState<number>(0);
 
   useEffect(() => {
-    if (containerRef.current) {
-      const children = Array.from(containerRef.current.children);
-
-      // getting heights of the children elements
+    if (!containerRef.current) return;
+    const observer = new ResizeObserver(() => {
+      //getting the max height among the children elements
+      const children = Array.from(containerRef.current!.children);
       const childrenStyles = children.map((c) => getComputedStyle(c));
       const maxHeight = Math.max(
         ...childrenStyles.map((cs) => Number.parseFloat(cs.height))
       );
       setContainerHeight(maxHeight);
       setContainerWidth(Number.parseFloat(childrenStyles[0].width));
-    }
+    });
+
+    observer.observe(containerRef.current);
   }, []);
 
   const renderReviewColumn = function (arr: ReviewProps[], i: number) {
