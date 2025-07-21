@@ -6,4 +6,5 @@ export const PAGES = {
   SHOP: "/shop",
   CART: "/cart",
   CHECKOUT: "/checkout",
+  SHOPITEM: "/shopitem",
 };
