@@ -2,7 +2,7 @@
 
 import { Box, Typography } from "@mui/material";
 import { serviceStyles } from "./Service";
-import { textStyle } from "../styling";
+import { textStyle } from "../utils/styling";
 import ToothGemsImg from "../assets/tooth-gems.png";
 import GoldenToothGemsImg from "../assets/golden-tooth-gems.png";
 

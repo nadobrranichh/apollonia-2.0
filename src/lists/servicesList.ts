@@ -4,7 +4,7 @@ import GrillzImg from "../assets/grillz.png";
 import MaintenanceKitImg from "../assets/maintenance-kit.png";
 import WhiteningTrayImg from "../assets/whitening-tray-cropped.png";
 import SportsguardImg from "../assets/sportsguard.png";
-import { serviceImageStyle } from "../styling";
+import { serviceImageStyle } from "../utils/styling";
 
 export interface ServiceProps {
   id: number;

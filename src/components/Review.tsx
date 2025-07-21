@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 // import React from "react";
-import { textStyle } from "../styling";
+import { textStyle } from "../utils/styling";
 import type { ReviewProps } from "../lists/reviewsList";
 import QuoteIcon from "../assets/quote-22-double-open.svg";
 import StarIcon from "../assets/star-svgrepo-com.svg";
