@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Review from "../components/Review";
 import { reviewsList, type ReviewProps } from "../lists/reviewsList";
-import { textStyle } from "../styling";
+import { textStyle } from "../utils/styling";
 import ReviewSwipeButton from "../components/ReviewSwipeButton";
 import { useEffect, useRef, useState } from "react";
 

@@ -3,7 +3,7 @@
 import { Box, Typography } from "@mui/material";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { textStyle } from "../styling";
+import { textStyle } from "../utils/styling";
 
 const LocationPage = () => {
   return (

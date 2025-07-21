@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import { textStyle } from "../styling";
+import { textStyle } from "../utils/styling";
 import type { ServiceProps } from "../lists/servicesList";
 
 export const serviceStyles = {

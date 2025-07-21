@@ -1,5 +1,5 @@
 import { Box, Link, List, ListItem, Typography } from "@mui/material";
-import { textStyle } from "../styling";
+import { textStyle } from "../utils/styling";
 import { socialsList } from "../lists/socialsList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { Instagram, Facebook, YouTube } from "@mui/icons-material";

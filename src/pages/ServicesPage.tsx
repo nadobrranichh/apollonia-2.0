@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import { servicesList } from "../lists/servicesList";
 import Service from "../components/Service";
 import GemService from "../components/GemService";
-import { textStyle } from "../styling";
+import { textStyle } from "../utils/styling";
 import React from "react";
 
 const ServicesPage = () => {
