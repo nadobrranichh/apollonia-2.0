@@ -1,7 +1,6 @@
 import RegularWhiteningTeethImg from "../assets/regular-whitening-teeth.png";
 import ApolloniaWhiteningTeethImg from "../assets/apollonia-whitening-teeth.png";
 import GrillzImg from "../assets/grillz.png";
-import MaintenanceKitImg from "../assets/maintenance-kit.png";
 import WhiteningTrayImg from "../assets/whitening-tray-cropped.png";
 import SportsguardImg from "../assets/sportsguard.png";
 import { serviceImageStyle } from "../utils/styling";
@@ -11,9 +10,9 @@ export interface ServiceProps {
   title: string;
   text: string;
   textWidth?: string;
-  price: number | [number, number];
-  priceComment: string | [string, string] | null;
-  image?: any;
+  price: number;
+  priceComment: string | null;
+  image?: string;
   imageStyles?: {};
 }
 
@@ -83,19 +82,6 @@ export const servicesList: ServiceProps[] = [
   },
   {
     id: 8,
-    title: "teeth whitening maintenance kit",
-    text: "(perfect for in-between visits or as a gentle top-up)",
-    price: [30, 20],
-    priceComment: ["with LED /lamp", ""],
-    image: MaintenanceKitImg,
-    imageStyles: serviceImageStyle(
-      "absolute",
-      { xs: "2.8rem", md: "4rem" },
-      { xs: "63%", md: "70%" }
-    ),
-  },
-  {
-    id: 9,
     title: "teeth whitening trays",
     text: "(for at-home teeth whitening or maintaining results after in-office treatment)",
     textWidth: "100%",
@@ -109,15 +95,15 @@ export const servicesList: ServiceProps[] = [
     ),
   },
   {
-    id: 10,
+    id: 9,
     title: "sportsguard",
-    text: "(helps keep your teeth in place)",
+    text: "(protects your teeth during contact sports)",
     price: 220,
     priceComment: null,
     image: SportsguardImg,
     imageStyles: serviceImageStyle(
       "absolute",
-      { xs: "3.5rem", md: "5.5rem" },
+      { xs: "4.2rem", md: "6.2rem" },
       "63%"
     ),
   },
