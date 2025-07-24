@@ -76,14 +76,12 @@ const Service: React.FC<{ service: ServiceProps }> = ({ service }) => {
           maxWidth: "400px",
         }}
       >
-        {/* service-title */}
         <Typography
           sx={textStyle(600, { xs: "0.75rem", md: "18px" }, "uppercase")}
           component="p"
         >
           {title}
         </Typography>
-        {/* service-text */}
         <Typography
           component="p"
           sx={{
@@ -95,20 +93,7 @@ const Service: React.FC<{ service: ServiceProps }> = ({ service }) => {
         </Typography>
       </Box>
 
-      {!Array.isArray(price) && !Array.isArray(priceComment)
-        ? renderPriceContainer(price, priceComment)
-        : Array.isArray(price) &&
-          Array.isArray(priceComment) && (
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "start",
-              }}
-            >
-              {price.map((p, i) => renderPriceContainer(p, priceComment[i]))}
-            </Box>
-          )}
+      {renderPriceContainer(price, priceComment)}
 
       {image && <Box component="img" src={image} sx={imageStyles}></Box>}
     </Box>
